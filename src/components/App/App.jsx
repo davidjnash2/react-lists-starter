@@ -3,9 +3,9 @@ import './App.css';
 
 function App() {
   const [creatureList, setCreatureList] = useState([
-    { name: 'Unicorn', origin: 'Britain' },
-    { name: 'Sphinx', origin: 'Egypt' },
-    { name: 'Jackalope', origin: 'America' }
+    { id: 2, name: 'Unicorn', origin: 'Britain' },
+    { id: 4, name: 'Sphinx', origin: 'Egypt' },
+    { id: 7, name: 'Jackalope', origin: 'America' }
   ])
 
   return (
@@ -20,6 +20,12 @@ function App() {
             {/* We can use JSON.stringify() to dump raw data into our DOM */}
             {JSON.stringify(creatureList)}
           </pre>
+          {/* <p>{creatureList[0].name} is from {creatureList[0].origin}</p> */}
+          {creatureList.map((creature) => {
+            return (
+              <p key={creature.id}>{creature.name} is from {creature.origin}</p>
+            )
+          })}
         </div>
       </div>
     </>
